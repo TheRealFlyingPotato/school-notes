@@ -22,8 +22,8 @@ attack:
   threats carried out
   
 Countermeasures:
---*Prevent
---*Detect
---*Respond
---*Recover
+--* Prevent
+--* Detect
+--* Respond
+--* Recover
   
