@@ -26,4 +26,42 @@ Countermeasures:
 * Detect
 * Respond
 * Recover
-  
+
+
+* Passive Attacks:
+** Traffic Analysis
+
+* Active Attacks
+** Replay
+** Masquerade
+** Modification of messages
+** Denial of service
+
+
+Fundamental Security Design Principles
+* Compartmentalizatoin, Layering, and Isolation "big three"
+* Encapsulation "private mmebers"
+* Isolation: running in VM or sandbox
+* Economy of mechanism: KISS
+* Least privilege: Don't give people permissions they don't need
+* Least Common Mechanism: Each user has their own mechanism, config, software, etc
+* Psychological Acceptability: user-friendly
+* Least astonishment: Intuitive designs
+
+Attack Surface Categories
+* Network attack Surface
+* Software Attack Surface
+* Human Attack Surface
+
+Attack Trees
+
+Computer Security Stretegy
+* Security Policy
+* b
+* c
+* d
+
+Protections
+* Crpyto
+* Physical protection
+* Design of accessible software interfaces
