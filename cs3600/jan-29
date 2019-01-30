@@ -1,0 +1,20 @@
+### Cryptography
+* Used to be illegal
+* What is cryptography?
+  * Codes vs. Ciphers
+    * Codes such as morse code are meant for encoding, not encryption
+  * CIA: Confedentiality
+  * Reverse Cipher
+  * Crypto via Python
+    * Debuggers: pudb3 x.py
+      * sudo apt-get install ..
+      * sudo apt-get install spyder3
+      * sudo apt-get install cgdb
+### Ceaser Cypher
+* keyspace: 26
+* how to crack:
+  * check for most common letter first?
+  * check for single letter words?
+### making a better cypher
+* change the key each time
+* arbitrary mapping
