@@ -1,0 +1,26 @@
+### lab access
+* Open lab in EECH/ECE 210
+* request access in 109
+* updates
+  * feb 11, feb 18
+  * feb 25 - final report
+  * submit slides before updates
+* cube mx
+* currently does some sort of scheduling - currently not real time
+* startup process
+  * power-up
+    * inits local code (eg local variables) before other pieces of code are ready
+    * ex. the sheduler has to power up before any task is scheduled
+  * init
+    * connect various code parts
+    * schedule tasks
+  * main loop
+    * runs the main scheduler loop
+### homework questions
+* general suggestion for hw: if something isn't clear or precisely definied, you are free to make assumptions - note it
+* number 3: can you explain ...
+  * .
+### project proposal
+* examples
+  * implementation of RTS
+  * survey type: go through a set of papers and summarize them, discussing current state of the art
