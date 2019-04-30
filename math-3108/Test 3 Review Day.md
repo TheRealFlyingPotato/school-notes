@@ -1,3 +1,4 @@
+# In-Class
 ### Format
 <br>same as usual
 ### Topics
@@ -15,3 +16,9 @@
 * row space : row vectors ({[1,2,3],[4,5,6]}
 * Row A = Col A<sup>T</sup>
 * the "usual inner product" is the dot product. We have not to this point worked with any of them.
+# My Notes
+## 4.3
+* a set of vectors forms a basis for R<sup>n</sup> if they are linearly independent and span R<sup>n</sup>
+* basis for null space: row reduce, use free variables
+* basis for column space: row reduce, use pivot columns of original matrix
+## 4.4
