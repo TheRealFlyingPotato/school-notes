@@ -22,3 +22,7 @@
 * basis for null space: row reduce, use free variables
 * basis for column space: row reduce, use pivot columns of original matrix
 ## 4.4
+
+## General Test Notes
+* A basis for a vectors space V is a minimal spanning set and a maximally L.I. set.
+* if __x__ is orthogonal to every vector in a subspace W of R<sup>n</sup>, then __x__ must be in the orthogonal complement of W.
