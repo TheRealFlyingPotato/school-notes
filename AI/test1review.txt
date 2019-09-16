@@ -1,0 +1,13 @@
+12. From the Slides (AI_Chapter_18.pdf)
+11. From the slides (same)
+  Supervised:
+  Unsupervised:
+  Reinforcement Learning:
+10. univarient regression... loss function
+    hw(x) = w1x + w0
+    Loss(hw) sum(j=1,M)|yj - (w1wj + w0)|
+9. repeat
+8. 
+...
+5.
+4. Answers in slides: slide 42, 48
