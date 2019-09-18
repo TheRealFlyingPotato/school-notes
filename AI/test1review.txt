@@ -17,6 +17,6 @@
     Loss(hw) sum(j=1,M)|yj - (w1wj + w0)|
 9. repeat
 8. 
-...
-5.
+6. slide 33
+5. plug in a random point, positive/negative determines which side
 4. Answers in slides: slide 42, 48
