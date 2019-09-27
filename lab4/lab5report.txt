@@ -1,0 +1,7 @@
+lab5:
+how many configurable logic elements...
+7
+worst case propagation delay?
+7.491
+3. 
+y -> pin_a
