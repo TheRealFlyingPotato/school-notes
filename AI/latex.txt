@@ -1,0 +1,239 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[letterpaper, 12 pt, conference]{ieeeconf}  % Comment this line out
+                                                          % if you need a4paper
+%\documentclass[a4paper, 12pt, conference]{ieeeconf}      % Use this line for a4
+                                                          % paper
+
+\IEEEoverridecommandlockouts                              % This command is only
+                                                          % needed if you want to
+                                                          % use the \thanks command
+\overrideIEEEmargins
+% See the \addtolength command later in the file to balance the column lengths
+% on the last page of the document
+
+\usepackage{hyperref}
+% \hypersetup{
+%     colorlinks=true,
+%     linkcolor=blue,
+%     filecolor=magenta,      
+%     urlcolor=cyan,
+% }
+
+% The following packages can be found on http:\\www.ctan.org
+%\usepackage{graphics} % for pdf, bitmapped graphics files
+%\usepackage{epsfig} % for postscript graphics files
+%\usepackage{mathptmx} % assumes new font selection scheme installed
+%\usepackage{times} % assumes new font selection scheme installed
+%\usepackage{amsmath} % assumes amsmath package installed
+%\usepackage{amssymb}  % assumes amsmath package installed
+
+\title{\LARGE \bf
+Artificial Intelligence Project Proposal
+}
+
+%\author{ \parbox{3 in}{\centering Narshion Ngao*
+%         \thanks{*Use the $\backslash$thanks command to put information here}\\
+%         Msc. Computer Systems - 2018\\
+%         Jomo Kenyatta University of Agriculture \& Technology \\
+%       
+%}}
+
+\author{Michael Ward \\% <-this % stops a space
+Missouri University of Science and Technology \\
+Course: CMP SCI 4300 - Artificial Intelligence \\
+Taken at the University of Missouri - St. Louis
+}
+
+
+\begin{document}
+
+
+
+\maketitle
+\thispagestyle{empty}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{abstract}
+
+Magic: The Gathering is the largest Trading Card Game around today. With over 20 billion cards printed from 2008-2016, ten thousand unique cards designed, and with TCGPlayer, the main secondary US market for Magic: The Gathering cards having an estimated annual revenue of 60 million, it's safe to assume there would be some use for a price prediction analyzer \cite{c1,c2,c3}. This project will attempt to take information about existing cards and use them to predict the price of new cards or theoretical cards. 
+% Four articles have been reviewed titled as follows: -
+% \begin{enumerate}
+%   \item Automatic Detection and Correction of Vulnerabilities using Machine Learning by Robin Tommy and others.
+%   \item Machine Learning Classification Model For Network Based Intrusion Detection System by Sanjay Kumar and others
+%   \item Preventing Attacks and Detecting Intruder for Secured Wireless Sensor Networks by Gauri Kalnoor and Jayashree Agarkhed
+%   \item Web Application Security: Threats, Countermeasures, and Pitfalls by Hsiu-Chuan Huang and others.
+% \end{enumerate}
+% The following text describes a brief overview of what these articles have reviewed in this field.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{DATASET}
+% \subsection{Description}
+
+\subsection{Overview}
+This project will use data taken from the powerful \url{api.scryfall.com} to gather the needed dataset that will have the needed inputs and outputs, as discussed in a later section.
+\subsection{Inputs}
+These inputs are the probable inputs this project will use.
+\begin{itemize}
+    \item Converted Mana Cost
+    \item Number of Times Reprinted
+    \item Rarity
+    \item Format Legality
+    \item Type
+    \item Colors / Color Identity
+    \item Age of Last Reprint
+\end{itemize}
+\subsection{Outputs}
+The price output is very right-skewed. Most Magic: The Gathering cards can be purchased for pennies, while some costs hundreds of dollars, and a few cost thousands of dollars. Thus, the data is definitely not uniformly distributed.
+\subsection{Normalization}
+The dataset will be normalized by reducing it to only the relevant inputs and output. All other information is unneeded and can be removed. If on rare occasion a card doesn't have have the needed inputs or outputs, it is to be regarded as an outlier and removed from the dataset.
+\section{Nueral Networks}
+\section{Tests and Evaluation}
+\section{Future Improvement}
+
+% \begin{itemize}
+%     \item Components of a Machine Learning IDS System
+%     \item Implementation
+%     \item Case Study
+% \end{itemize}
+
+% \subsection{Components of a Machine Learning IDS System}
+% \subsubsection{Scanners}
+% In web application security, scanners refer to the web crawlers that automatically browse web pages to find vulnerabilities based on tests done on them. They collect the data needed to train the model and are also used to improve the model using re-scan feature. The main types of threats on the web are SQL injections and cross site scripting. 
+% \subsubsection{Fortifier}
+% After the scanner is read the traffic, a fortifier is used to correct the vulnerabilities that have been detected. It suggests to the user to fix the vulnerability by providing a secure code that can be used in the stead of the weaker one.
+% \subsubsection{Centralized Server}
+% This component maintains the details of all the existing vulnerabilities and current patches. It uses Support Vector Machine algorithms to improvise performance of its web scans.
+% \subsubsection{Firewall}
+% Helps protect the web application from known malicious web users and denial of service attacks.
+
+% \subsection{Implementation}
+% This section describes how a machine learning algorithm can be implemented for intrusion detection and prevention in a web application use case. 
+% A Bug Terminating Bot (BTB) is an example of such algorithms. The paper has reviewed how it was implemented.
+
+% \subsection{Case Study}
+% Finally the paper discusses a test case in which the BTB was used, its performance results and graph showing how effective the application was in detecting vulnerabilities.
+
+% \section{Machine Learning Classification Model For Network Based Intrusion Detection System}
+% \subsection{Authors}
+% (Sanjay Kumar, Ari Viinikaineny and Timo Hamalainenz, 2016)
+% \subsection{Overview}
+% This papers focuses on Machine Learning models for Network Intrusion Detection Systems particularly around the android mobile system. A survey at Alcatel-Lucent indicated that 71 percent of smart phones do not have an antivirus and a mobile antivirus can detect only 50 \% of threats. It is evident that providing an extra layer of security at the network level can help protect many mobile subscribers. 
+% This research work evaluated the effectiveness of machine learning techniques in network-based intrusion detection systems. It also underpins the main objectives of such an implementation as being: -
+% \begin{itemize}
+% \item to increase the detection rate
+% \item to reduce false positives
+% \item to detect unknown threats.
+% \end{itemize}
+% The research started with an enumeration of all mobile threats, then went on to review several Network based Intrusion Detection Systems and then settled on an implementation model.
+
+% \subsection{Network based Intrusion Detection Systems}
+% This is an IDS that monitors traffic for any suspicious, anomalous or unauthorised activity which could result to a cyber attack. They are based on two categories: 1, Misuse Detections - which are signature based and 2, Anomaly Detection which are behaviour based.
+% A review of datasets used in network intrusion detection was discussed including mobile based datasets which enumerate specific mobile threats. 
+
+% \subsection{Machine Learning Classification Model}
+% The paper dived deep into the implementation of a classification model for network intrusion detection. First we highlight the steps for building a machine learning classifier are: -
+% \begin{enumerate}
+% \item Traffic Generation
+% \item Preprocessing
+% \item Building Machine learning classification model
+% \item Evaluation of Machine learning classifiers
+% \end{enumerate}
+
+% \subsubsection{Traffic Generation}
+% This is a sensor for getting both benign and malicious data that will be fed into the model.
+% \subsubsection{Preprocessing}
+% Labeling of datasets and generation of classifiers. Including defining evaluation techniques.
+% \subsubsection{Building Machine learning classification model}
+% These were built using decision trees and rule based algorithms.Machine Learning algorithms that were used in this research are J48, Random Forest, RIDOR, JRIP and PART.
+% \subsubsection{Evaluation of Machine learning classifiers}
+% Several experiments were performed on different datasets in order to evaluate the performance of the model based on Machine Learning classifiers. Eight Datasets were created according to different criteria and conditions.
+% Validation methods used were cross validation and percentage split.
+
+% Several experiments were conducted and the paper has put in place the results of the experiment. 
+% In its conclusion, the final outcome of this research is that the model developed in this research was able to detect known and unknown threats. Although, mNIDS produced high accuracy, but it can be further improved when it will be used with in conjunction with the traditional intrusion detection systems.
+
+% \section{Preventing Attacks and Detecting Intruder for Secured Wireless Sensor Networks}
+% \subsection{Authors}
+% (Gauri Kalnoor and Jayashree Agarkhed, 2016)
+% \subsection{Overview}
+% This paper talks about wireless sensor networks, their use cases and implementations. A new type of Intrusion Detection System is proposed called hybrid IDS. 
+% Hybrid IDS is a type of IDS that considers the advantages of both misuse-based (and signature-based) and anomaly based detection IDS.
+
+% \subsection{Intrusion Detection Approaches}
+% Various approaches for intrusion detection have been discussed. In summary, there are distributed approaches which are based on multi-agent IDS frameworks for wireless sensor networks. The other major category is the hybrid IDS systems that are based on probability on trust, isolation and detection. 
+
+% \subsection{Intrusion Detection and Prevention Algorith}
+% Two algorithms are demonstrated using pseudo codes and a discussion on implementation. One based on distributed and the other based on hierarchy.
+
+% \subsection{Results}
+% Analysis and metrics on performance of the models have been described. The following methods were used: -
+% \begin{itemize}
+% \item Detection Rate (DR) of an Intruder attack
+% \item False Positive Rate (FPR)
+% \item The False Alarm Rate
+% \item Accuracy Rate
+% \item Forward transmission ratio FT
+% \end{itemize}
+
+% In conclusion, WSN is an emerging technology and is applied in various applications like object tracking, military applications and smart homes. Since, WSN are vulnerable to several attacks as they are deployed in an open and unprotected environment. Security is an important feature for the deployment of Wireless Sensor Networks.
+
+% \section{Web Application Security: Threats, Countermeasures, and Pitfalls}
+% \subsection{Authors}
+% (Hsiu-Chuan Huang, Zhi-Kai Zhang, Hao-Wen Cheng, and Shiuhpyng Winston Shieh, 2017)
+% \subsection{Overview}
+% According to the most recent security reports, more than 229,000 attacks against websites occur each day, and more than 76 percent of websites contain unpatched vulnerabilities. This paper therefore focuses on identifying threats of these attacks, counter measures that can be applied and challenges encountered so far!
+
+% \subsection{Threats}
+% The most common threats in web applications are: -
+% \begin{enumerate}
+% \item SQL Injections
+% \item Cross-site scripting
+% \end{enumerate}
+
+% \subsubsection{SQL Injections}
+% These are attacks on web pages that take advantage of poorly written database queries. They exploit the application by using smart codes to induce their malicious code through the database.
+% \subsubsection{Cross-site scripting}
+% These happen when web pages outputting information are not properly escaped. The attacker is able to introduce client side code like javascript that can run on a users computer once the page is opened.
+
+% \subsection{SQL INJECTION AND XSS COUNTERMEASURES}
+% The below counter measures were discussed in this paper: -
+% \subsubsection{Secure implementation}
+% Making sure that all code that reads or writes databases is safely escaped using tools like "mysql real escape" and code that outputs to browsers is escaped.
+
+% \subsubsection{Penetration testing}
+% Conducting rigorous white-box testing to identify all vulnerabilities and effectively implementing the right measures to remove the vulnerabilities.
+
+% \subsubsection{Defense mechanism deployment}
+% Implementing web application firewalls that are able to scan all inbound traffic and can detect attacks.
+
+
+% \section{CONCLUSIONS}
+
+% The field of artificial intelligence is gaining momentum especially in this new era of advanced computing. various fields such as Information Systems Security are now taking advantage of this field to optimize security in systems and provide more secure networks.
+
+\addtolength{\textheight}{-12cm}   % This command serves to balance the column lengths
+                                  % on the last page of the document manually. It shortens
+                                  % the textheight of the last page by a suitable amount.
+                                  % This command does not take effect until the next page
+                                  % so it should come on the page before the last. Make
+                                  % sure that you do not shorten the textheight too much.
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{c1} https://magic.wizards.com/en/content/magic-25th-anniversary-page-facts-and-figures
+\bibitem{c2} https://magic.wizards.com/en/articles/archive/25-random-things-about-magic-2009-02-16
+\bibitem{c3} https://www.owler.com/company/tcgplayer
+
+\end{thebibliography}
+
+
+
+
+\end{document}
