@@ -1,0 +1,33 @@
+scatterplots
+Example for Exam 1
+no outliers
+2 clusters
+linear
+pos
+
+Example:
+x = gross family income
+y = cost of house when purchased
+outliers: 1 (same trend but isolation)
+clusters: (1 or 2)
+
+Regression Line:
+(y= mx + b)
+y^ = b0 + b1x
+b1: slope
+b0: intercept
+y^ = predicted value of y
+
+get the hat on there
+
+interpretation of the intercept and slope ----
+x = 0 -> expl. variable = 0
+b0 = y^
+b0 = -11.09
+Interpret: when sales is 0, the line predicts revenue to be -11090
+Extrapolation (which is baaad.. no data to actually back it up.)
+
+determining if the regression line is doing a good job. (r2 value)
+r2 -> the proportion of variation in the response, y that is explained by the line with the explanatory variable, x.
+r2 * 100%
+impossible to give a rule about r2 and how good a line is.
