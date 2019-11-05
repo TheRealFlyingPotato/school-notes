@@ -1,0 +1,9 @@
+S:/CpE2211/school-notes/lab6/lab6.vhd {1 {vcom -work work -2002 -explicit S:/CpE2211/school-notes/lab6/lab6.vhd
+Model Technology ModelSim ALTERA vcom 10.0d Compiler 2012.01 Jan 18 2012
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity lab6
+-- Compiling architecture bdf_type of lab6
+
+} {} {}}

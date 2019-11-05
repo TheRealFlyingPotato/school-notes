@@ -1,0 +1,133 @@
+m255
+K3
+13
+cModel Technology
+dS:\school-notes\CpE2211\lab7
+Ccfg_tb_rca
+atestbench
+etb_RCA
+Z0 DEx4 work 3 rca 0 22 bc_JHL5ONAb<V_[^0k6`P0
+DAx4 work 6 tb_rca 9 testbench 22 ciaFWIU8N@l7RDh:lAoe21
+Z1 DPx4 ieee 18 std_logic_unsigned 0 22 RYmj;=TK`k=k>D@Cz`zoB3
+Z2 DPx4 ieee 15 std_logic_arith 0 22 4`Y?g_lkdn;7UL9IiJck01
+Z3 DPx3 std 6 textio 0 22 G^o2zK;Vh4eVdKTVo98653
+Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
+Z5 DEx4 work 6 tb_rca 0 22 a1@Q[>:lkIE?^]O3OYe0M3
+Z6 w1571355489
+Z7 dS:\school-notes\CpE2211\lab8
+Z8 8S:/school-notes/CpE2211/lab8/tb_RCA.vhd
+Z9 FS:/school-notes/CpE2211/lab8/tb_RCA.vhd
+l0
+L60
+V:LE9lP8eID63dJiS]OB=:1
+!s100 Q1aBkQ=6jTS_S7gBWcNY40
+Z10 OV;C;10.0d;49
+32
+Z11 !s108 1571355561.896000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|S:/school-notes/CpE2211/lab8/tb_RCA.vhd|
+Z13 !s107 S:/school-notes/CpE2211/lab8/tb_RCA.vhd|
+Z14 o-work work -2002 -explicit -O0
+Z15 tExplicit 1
+Efa
+Z16 w1571354764
+R3
+R4
+R7
+Z17 8S:/school-notes/CpE2211/lab8/FA.vhd
+Z18 FS:/school-notes/CpE2211/lab8/FA.vhd
+l0
+L8
+Vb9zFnWcRSPRhdSZQL4@1R3
+R10
+32
+Z19 !s108 1571355561.336000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|S:/school-notes/CpE2211/lab8/FA.vhd|
+Z21 !s107 S:/school-notes/CpE2211/lab8/FA.vhd|
+R14
+R15
+!s100 SKj7a1ED6Y2Lnge`_iPkC3
+Adf_fa
+R3
+R4
+DEx4 work 2 fa 0 22 b9zFnWcRSPRhdSZQL4@1R3
+l16
+L15
+V2SjmV9P[0a30dW?QejVDj2
+R10
+32
+R19
+R20
+R21
+R14
+R15
+!s100 GBZ]@@]aPm=3XRD0G=H>R3
+Erca
+Z22 w1571355462
+R3
+R4
+R7
+Z23 8S:/school-notes/CpE2211/lab8/RCA.vhd
+Z24 FS:/school-notes/CpE2211/lab8/RCA.vhd
+l0
+L8
+Vbc_JHL5ONAb<V_[^0k6`P0
+R10
+32
+Z25 !s108 1571355561.606000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|S:/school-notes/CpE2211/lab8/RCA.vhd|
+Z27 !s107 S:/school-notes/CpE2211/lab8/RCA.vhd|
+R14
+R15
+!s100 >k`S1UgJC:S?3o[0;DXfX0
+Astruct_rca
+R3
+R4
+Z28 DEx4 work 3 rca 0 22 bc_JHL5ONAb<V_[^0k6`P0
+l24
+L16
+VhOCdR0[MmR3g2O8coT]8M2
+!s100 gAm_9mYd4[f`z^n[6Q;i22
+R10
+32
+R25
+R26
+R27
+R14
+R15
+Etb_rca
+R6
+R1
+R2
+R3
+R4
+R7
+R8
+R9
+l0
+L8
+Va1@Q[>:lkIE?^]O3OYe0M3
+!s100 bBIJFnN<kPlX<4^1XCS4T0
+R10
+32
+R11
+R12
+R13
+R14
+R15
+Atestbench
+R1
+R2
+R3
+R4
+R5
+l26
+L11
+Z29 VciaFWIU8N@l7RDh:lAoe21
+Z30 !s100 EzS[I4_BOlCAPRca52;590
+R10
+32
+R11
+R12
+R13
+R14
+R15

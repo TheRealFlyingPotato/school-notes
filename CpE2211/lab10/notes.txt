@@ -1,0 +1,12 @@
+design
+save as block name (e.g. mux21)
+files in proj navigator, r-click, set as t-l-e
+check in hierarchy that it's top level entity
+double click analysis & snyth
+file -> create symbol file
+--
+create new block diagram
+use symbols created
+use buses
+gnd is in symbols
+don't forget to name wires (r-click, properties)
