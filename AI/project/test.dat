@@ -1,0 +1,59 @@
+{
+  "cards": [
+    {
+      "name": "Earthshaker Giant",
+      "mana_cost": "{4}{G}{G}",
+      "cmc": 6.0,
+      "colors": [
+        "G"
+      ],
+      "color_identity": [
+        "G"
+      ],
+      "legalities": {
+        "standard": "not_legal",
+        "future": "not_legal",
+        "historic": "not_legal",
+        "pioneer": "not_legal",
+        "modern": "not_legal",
+        "legacy": "not_legal",
+        "pauper": "not_legal",
+        "vintage": "not_legal",
+        "penny": "not_legal",
+        "commander": "not_legal",
+        "brawl": "not_legal",
+        "duel": "not_legal",
+        "oldschool": "not_legal"
+      },
+      "type_line": "Creature â€” Giant Druid",
+      "reserved": false,
+      "set_prices": {
+        "Masters 25": "2.14",
+        "Archenemy: Nicol Bolas": "2.55",
+        "Modern Masters 2015": "2.37",
+        "Magic 2011": "2.30",
+        "Magic 2010": "2.56",
+        "Masters Edition": null,
+        "Fourth Edition": "2.57",
+        "Summer Magic / Edgar": null,
+        "Revised Edition": "3.00",
+        "Unlimited Edition": "21.40",
+        "Limited Edition Beta": "299.99",
+        "Limited Edition Alpha": "350.00",
+        "MagicFest 2019": "11.48",
+        "Magic Online Promos": null,
+        "Premium Deck Series: Fire and Lightning": null,
+        "Magic Online Theme Decks": null,
+        "Magic Player Rewards 2010": null,
+        "Beatdown Box Set": "3.48",
+        "Anthologies": "3.64",
+        "Judge Gift Cards 1998": null,
+        "Fourth Edition Foreign Black Border": null,
+        "Foreign Black Border": "41.99",
+        "Pro Tour Collector Set": "0.99",
+        "Intl. Collectors’ Edition": "59.99",
+        "Collectors’ Edition": "47.00"
+      }
+    }
+  ]
+}
