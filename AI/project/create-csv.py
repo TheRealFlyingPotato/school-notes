@@ -1,9 +1,12 @@
 import json
+import csv
 
 with open('set-dates.json', 'r') as fin:
   setDates = json.load(fin)
-with open('cards-with-set-prices.dat') as fin:
+with open('cards-with-set-prices.dat','r') as fin:
   inJSON = json.load(fin)
+with open('type-codes.json','r') as fin:
+  typeCodes = json.load(fin)
 
 
 def getDateCode(n):
@@ -12,17 +15,42 @@ def isReserved(card):
   try:
     return int(card['reserved'])
   except:
-    return -1
+    return None
 def getTypeLine(card):
   s = card['type_line']
-  if '—' not in s:
-    return s
-  return s.split('—')[0]
+  if '-' in s:
+    s = s.split('-')[0].strip()
+  if '//' in s:
+    s = s.split('//')[0].strip()
+  removes = ['Tribal', 'Snow', 'World', 'Token']
+  for r in removes:
+    if r in s:
+      s = s.replace(r, '').strip()
+  if 'Land Creature' == s:
+    return 'Creature'
+  if 'Legendary' in s:
+    if 'Creature' not in s:
+      s = s.replace('Legendary', '').strip()
+  while '  ' in s:
+    s = s.replace('  ', ' ')
+  return s
+def getTypeCode(card):
+  return typeCodes[getTypeLine(card)]
+def isCommander(card):
+  if card['legalities']['commander'] != 'legal':
+    return 0
+  typeLine = getTypeLine(card)
+  if 'Legendary' in typeLine and 'Creature' in typeLine:
+    return 1
+  else:
+    return 0
 
 outputList = list()
+print('Assembling datapoints...')
 for card in inJSON['cards']:
-  print(">> {} << ".format(card['name']))
-  ### CMC, Color Identity, LegalityCount, BestSetDate, Reserved, BestPrice
+  # print(">> {} << ".format(card['name']))
+  ### CMC, Color Identity, LegalityCount, BestSetDate, Reserved
+  ### TypeCode, isCommander, BestPrice
   l = [
     card['cmc'],
     len(card['color_identity']),
@@ -51,14 +79,16 @@ for card in inJSON['cards']:
     continue
   l.append(getDateCode(bestSet))
   l.append(isReserved(card))
-
-  l.append(bestPrice)
-
-  if isReserved(card) == -1:
+  if isReserved(card) == None:
     continue
-  if isReserved(card):
-    input(l)
-  
+  l.append(getTypeCode(card))
+  l.append(isCommander(card))
+  l.append(bestPrice)
+  outputList.append(l)
 
-  
-    
+print('Writing to dataset.csv...')
+with open('dataset.csv', 'w', newline='') as fout:
+  employee_writer = csv.writer(fout, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+  for datapoint in outputList:
+    employee_writer.writerow(datapoint)
+print('Complete!\n\n')
