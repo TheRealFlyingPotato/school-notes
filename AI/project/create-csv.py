@@ -48,8 +48,9 @@ def isCommander(card):
 outputList = list()
 print('Assembling datapoints...')
 for card in inJSON['cards']:
-  if card['reserved'] == 'Black Lotus':
+  if card['reserved']:
     print('skipping {} because of reserved list'.format(card['name']))
+    continue
   # print(">> {} << ".format(card['name']))
   ### CMC, Color Identity, LegalityCount, BestSetDate
   ### TypeCode, BestPrice
