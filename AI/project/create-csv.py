@@ -52,7 +52,7 @@ for card in inJSON['cards']:
     print('skipping {} because of reserved list'.format(card['name']))
   # print(">> {} << ".format(card['name']))
   ### CMC, Color Identity, LegalityCount, BestSetDate
-  ### TypeCode, isCommander, BestPrice
+  ### TypeCode, BestPrice
   l = [
     card['cmc'],
     len(card['color_identity']),
@@ -84,7 +84,7 @@ for card in inJSON['cards']:
   # if isReserved(card) == None:
   #   continue
   l.append(getTypeCode(card))
-  l.append(isCommander(card))
+  #l.append(isCommander(card))
   l.append(bestPrice)
   outputList.append(l)
 
