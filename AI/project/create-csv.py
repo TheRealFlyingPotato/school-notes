@@ -48,8 +48,10 @@ def isCommander(card):
 outputList = list()
 print('Assembling datapoints...')
 for card in inJSON['cards']:
+  if card['reserved'] == 'Black Lotus':
+    print('skipping {} because of reserved list'.format(card['name']))
   # print(">> {} << ".format(card['name']))
-  ### CMC, Color Identity, LegalityCount, BestSetDate, Reserved
+  ### CMC, Color Identity, LegalityCount, BestSetDate
   ### TypeCode, isCommander, BestPrice
   l = [
     card['cmc'],
@@ -78,9 +80,9 @@ for card in inJSON['cards']:
   if bestPrice == 99999:
     continue
   l.append(getDateCode(bestSet))
-  l.append(isReserved(card))
-  if isReserved(card) == None:
-    continue
+  # l.append(isReserved(card))
+  # if isReserved(card) == None:
+  #   continue
   l.append(getTypeCode(card))
   l.append(isCommander(card))
   l.append(bestPrice)
