@@ -1,0 +1,8 @@
+Michael Ward's Review of Allison Chan's report
+---------------------------------------------
+
+1. I would recommending providing some sort of intro. Just getting dropped into the report with the images first thing is a little disorienting, and the fact that I only have a vague idea of what your project is about starting on page 4. So I would definitely include an introduction / outline of what the report is about - e.g. What the model is.
+
+2. Along with step 1, I would recommend providing a bit more explanation about some of the pictures at the top.
+
+3. I really like how you went over each individual input in-depth and explained why you did/didn't keep them in your model.
