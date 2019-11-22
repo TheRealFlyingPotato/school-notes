@@ -1,0 +1,17 @@
+{
+  "Artifact": 0,
+  "Artifact Creature": 1,
+  "Artifact Land": 2,
+  "Basic Land": 3,
+  "Creature": 4,
+  "Enchantment": 5,
+  "Enchantment Artifact": 6,
+  "Enchantment Creature": 7,
+  "Instant": 8,
+  "Land": 9,
+  "Legendary Artifact Creature": 10,
+  "Legendary Creature": 11,
+  "Legendary Enchantment Creature": 12,
+  "Planeswalker": 13,
+  "Sorcery": 14
+}
