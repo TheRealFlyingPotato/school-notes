@@ -1,0 +1,48 @@
+
+### Macro Rules ###
+Macros can be put on command line.
+* Priority order of macro substitutions from least important to most:
+  * default definitions of make
+  * current shell env
+  * description file definitions
+  * command line
+Macro String Substitutions
+ex: ls ${SOURCES: .cpp = .o}
+This will list moe.o larry.o curly.o
+
+### SUFFIX RULES ###
+A suffix rule is predefined, generalized description file entry.
+make will depend (mostly) on >default< suffix rules.
+
+```
+.SUFFIXES: .cpp
+.cpp.o: $<
+  ${cxx} -c ${FLAGS} $< -o $@
+
+```
+line 1 tells me what the significant suffixes are.
+line 2 tells make how a .cpp is built from .o files.
+
+make takes each prerequisite in turn as a target. It determines how each must be built and whether or not it needs to be rebuilt.
+  * if a prereq ends in a significant suffix, then make first looks for an explicit rule. If none exist, thenmake applies the default rules.
+  * If make determines that a .o file needs to be rebuilt, then finding to explicit rule, it applies the suffix ruels above. By looking ofr a file with the same name (Except for the extension) looks for a file with a significant extension, and looks to see if that file can be used to rebuild the target. If the prereq is nwer than the target, it rebuilds it. (using the rule set up in the suffix rule)
+  
+List of links on prices website: makefile1,2,3. 3rd one is significant in that it is claimed by the author to build any project. Can use this for hw2+
+
+##### MODELING ####
+What is kmodeling? To model is to describe a real system in a "simplistic" way.
+Ex: Building a building
+We model
+  * to visualize and control a system's architechture.
+  * to see what the system is doing.
+  * to see what it is capable of
+  * to manage risk
+  * to document the product
+  * to provide insight into unforseen problems
+We model because we can't see the entirety of a large system.
+"Divide and Conquer"
+  if you're given a huge program do you write it all in one function or one sitting
+Models may represent a project from different views.
+Hopefully your model will lead to a system that is more modifiable, adaptable, extendable (perhaps expendable), etc.
+
+Not going to speak on chapter 8 explicitly, not required. But good reading.
