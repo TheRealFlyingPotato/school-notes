@@ -1,0 +1,100 @@
+example code posted for assignment 1 evidently has an issue didn't compile correctly,
+
+##### UML Basic Building Blocks #####
+Things         Relationships          Diagrams
+(things)   (how things interact)  (bunch-o-things)
+
+**things responsible for**
+Things:
+  1. Strucutral: Nouns of UML, static parts of the model, either phystical (e.g. desk, building) or conceptual (e.g. matrix)
+     >> **class** - set of objects with shared operations and attributes
+     >> interface -
+     >> collaboration -
+     ... etc
+   2. Behavioral: Verbs of UML - describe behavior over time
+      >> interaction - 
+      >> state machines - 
+   3. **Annotational**: explanatory part of UML
+      >> a note
+      >> a constraint
+Relationships:
+    1. Dependencies
+    2. Associations
+    3. Generalizations
+    4. Realizations (not responsible for)
+Diagrams:
+    - Any combination of Things and Relationships
+ 
+A class diagram is a box with 3 sections:
+|NAME|ATTRIBUTES|OPERATIONS|
+
+Remember! : Use only the parts of UML you need for a given situation
+
+Ex: Class diagram for a chair may just be   
+| chair |
+or maybe  
+|     table    |
+| numLegs: int |
+or maybe 
+|     table    |
+| numLegs: int |
+|    fold()    |
+
+Relationships:
+  1) Dependency:
+    shows that one thing depends on another thing
+      [A]------>[B]
+        A "uses a" B
+   2) Association
+     some kind of general structural relationship
+         1..4   1..*
+           ───────
+     teacher     student
+     
+     [A]────────>[B]
+       A "contains a" B
+   3) Generalization
+      Inheritance / Abstraction
+        [A]────────▷[B]
+          A "is a" B
+Notes + contraints
+  [class diagram]
+   -               -
+     -               -
+       -               -
+         -              [comment/note] (fold down the corner)
+           { constraint } 
+ _____           
+|_____| (box in the corner means templated class)
+|_____|
+|_____|
+
+Attributes (member variables -- square brackets optional)
+   general format:
+      [visibility] name [multiplicity] [:type]
+      visibilty: + (public)
+                 - (private)
+                 # (protected)
+      multiplicity: like an array
+      :type : type of variable it is.
+      
+ Operations (member fncts)
+    general format:
+      [visibility] name [([direction] name [:const] [:type])] [:ret_type]
+                          () is a paramater list
+      directions:
+        * in
+        * out
+        * inout
+
+examples:
+          1         *
+  ______              __________
+ |school|────────────|department|
+  ‾‾‾‾‾‾| 1           ‾‾‾‾‾‾‾‾‾‾
+        | 1..*
+ |school|      etc etc
+ 
+                
+               
+        
