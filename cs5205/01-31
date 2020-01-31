@@ -1,0 +1,32 @@
+##### Review + a bit ######
+built in types, operators, decision branching, looping
+
+: OOP
+Why do we create classes?
+
+##### point.h #############
+class point
+{
+  private:
+    float m_X;
+    float m_Y;
+  public:
+    point() {};
+    point(const float x, const float y) : m_x(x), m_y(y) {}; // called an initializing list
+    float dist(const Point & pt) const;
+    float dist(const Line a_line) const;
+    float getX() const;
+    float getY() const;
+};
+############################
+##### point_functs.cpp #####
+#include "point.h"
+float point::dist(const point & pt) const
+{
+  return sqrt((m_x-p.m_X)*(m_x-p.getX()) + ... y's));
+  //cast things
+}
+float point::dist(const line & l) const
+{
+  return l.dist(*this); //dereference this
+}
