@@ -1,0 +1,87 @@
+class Line
+{
+  private:
+    float m_a, m_b, m_c;
+  public:
+    Line(const Point pt1, const Point pt2);
+    Line(const Point p5, const float x_dir, const float y_dir);
+    Point intersect(const Line & other_line) const;
+    float dist(const Point & pt) const;
+    static float parallel_tolerance;
+}
+
+fncts:
+float Line::dist(const Point & pt)
+{
+  return fabs((m_a*a_pt.getX()+m_b*a_pt.getY()+m_c) / 
+             (m_a*m_a+m_b*m_b));
+}
+
+// Now, the interaction pt. functionality is a bit mysterious.
+// first, the static variable in our line class is a "different kind" of variable. Any static member variable
+// of a class "represents" the entire clasee in the sense that it applies to all objects of that class type.
+// A static variable has only one memory location / instance - there is only one of these for a given class.
+
+// some place in a .cpp file, the value of this variable needs to be allocated and assigned.
+
+// For the intersect function, the code first determines if the two lines are parallel or not.
+// it relies on the first limit leanred in calc II. (limit as theta -> 0 of sin theta/theta = lim theta -> 0 theta/sin(theta) = 1)
+// when theta is small, so is sin(theta)
+// likewise, sin^2(theta) = theta^2
+
+// in almost every case, every class you write should have its own pair of files. (header, .h, and implementations, .hpp or .cpp)
+// UNLESS there is a class aligned with/inside of another class.
+
+////////// stopping repeat definitions : preprocessor commands
+// blah
+#ifndef STUFF_H
+#define STUFF_H
+..
+#endif
+///////////////
+or
+#pragma once
+
+######## array class, let's go ########
+class Array
+{
+  public:
+    Array();
+    Array(const long size) {}
+    Array(const Array & arr); //don't forget by reference lol
+    ~Array();
+    float & operator [] (const int i); // projection operator?
+    int getSize() const;
+    Array & operator = (const Array & source); //returns reference to calling object
+    Array & operator = (const float val); // assign a float to every member in that array
+    void setSize(const long size);
+  private:
+    long m_size;
+    float* m_ptr_to_data;
+    void arraycopy(const Array & source); //helper
+}
+///// Array.cpp /////
+Array::Array()
+{
+  m_size = 0;
+  ptr_to_data = NULL;
+}
+Array::Array(const int size)
+{
+  m_size = size;
+  m_ptr_to_data = new float[size];
+}
+Array::Array(const Array & arr)
+{
+  m_size = source.m_size;
+  ptr_to_data = new float[m_size]
+  arraycopy(source);
+}
+void Array::arraycopy(const Array & source)
+{
+  float* p = m_ptr_to_data + size;
+  float* q = source.m_ptr_to_data + size;
+  while(p > m_ptr_to_data)                  / for (int i = 0; i < m_size; i++)
+    *--p = *--q;                            /   ptr_to_data = source.ptr_to_data
+  return;
+}
