@@ -1,0 +1,115 @@
+### Range-Based for loops ###
+requires:
+  begin()
+  end()
+  prefix ++ overload
+  overload of * operator
+  !=
+### continuation of array class
+Array::~Array() {delete [] ptr_to_data;}
+
+float & Array::operator[](const long n) // this particular overload returns a reference to an element in the array 
+{                                       // therefore can be on the lhs or rhs
+  return ptr_to_data[i];
+}
+
+Array & Array::operator = (const Array & source)
+{
+  if (ptr_to_data != source.ptr_to_data)
+  {
+    setsize(source.m_size);
+    arraycopy(source);
+  }
+  return *this;
+}
+
+void Array::setsize(const int size)
+{
+  if (size != m_size)
+  {
+    delete [] ptr_to_data;
+    m_size = size;
+    ptr_to_data = new float[size];
+  }
+  return;
+}
+#####################################
+AND BTW...
+we just wrote a class that represents an array whose data includes an array
+referencial aggregation: means you aggregated a reference
+when writing classes that contain pointers... 
+the rule of 3,3.5,4,5
+  - constructors (in particular copy constructor)
+  - destructors
+  - assignment operators
+  3.5 - swap function
+  - move constructor
+  
+#################################
+let's template the array class
+//
+template class T> //<typename T>
+class Array
+{
+  private:
+    int m_size;
+    T *ptr_to_data[];
+    void arrayCopy(const Array<T> & source);
+  public:
+    .
+    .
+    Array(const Array<t> & source);
+    Array<T>& operator=(const Array<T> & source); //assigntment, bracket, function eval must be member functions, ->
+    Array<T>& operator=(const T & t);
+    T& operator [] (const long index);
+    .
+    .
+    .
+}; //// <- .h
+// The implementation of these functions are placed in a .hpp #include "Array.hpp" 
+// is placed at the end of the .h file (before #endif) 
+// as an example of fnct defs
+template <typename T>
+Array<T>::Array(const int size)
+{
+  m_size = size;
+  ptr_to_data = new T[size];
+}
+
+template <typename T>
+Array<T>::Array() : m_size(0), ptr_to_data(NULL) {} //0, NULL, nullptr
+
+################### template functions
+templates                            vs                       overload
+same number of params but different         different functionality for different params
+usually same functionality
+
+swap function
+template <typename T>
+void swap(T & t1, T & t2)
+{
+  T temp = t1;
+  t1 = t2;
+  t2 = temp1;
+  return;
+  //t1 ^= t1 ^= t1 ^= t2; //bitwise XOR
+}
+
+//ex 
+template <class T>
+int locate(const T arr[], const T target, const int size)
+{
+  int index = 0;
+  bool found = false;
+  while (!found && index < size)
+  {
+    if (arr[index] == target)
+      found = true;
+    index++;
+  }
+  return (found ? index : -1);
+}
+
+//   almost important
+//     preconditions
+//     // the == operator must be defined for T
