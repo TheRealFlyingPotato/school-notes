@@ -1,0 +1,89 @@
+### multiple template types ####
+
+// pre: the << operator must be defined for T and U types
+template <typename T, typename U>
+void dumb (const T & thing, const U & u)
+{
+  cout << thing << ' ' << u;
+  return;
+}
+#################################
+
+preconditions for template functions
+be very careful about citing the required operators
+
+##### Exception handling
+class RangeErr
+{
+  public:
+    RangeErr(int i);
+    int badSubscrpt();
+  private:
+    int subscr;
+};
+
+class SizeErr
+{
+  public:
+    sizeErr(int i);
+    int badSubscrpt();
+  private:
+    int subscr;
+};
+
+For Array class, we modify some functions.
+####
+template <typename T>
+Array<T>::Array(int size)
+{
+  if (size < 0) Throw sizeErr(n);
+  m_size = n;
+  ptr_to_data = new T[n];
+}
+
+..
+T & Array<T>::operator[](int i)
+{
+  if (i < 0 || i >= m_Size) throw RangeErr(i);
+  ...
+}
+
+..
+T & Array<T>::setSize(int i)
+{
+  if (n != m_size) 
+    if (n < 0) throw sizeErr(i);
+  ...
+}
+
+### client code ###
+try
+{
+  int n;
+  cin >> n;
+  Array<float> array(n);
+  ...
+  int j;
+  cin >> j;
+  float f = array[j];
+  ...
+}
+catch (RangeErr e)
+{
+  cerr << "Subscript is out of range: " << e.badSubscrpt() << endl;
+}
+catch (SizeErr e)
+{
+  cerr << "Size of array is negative: " << e.badSubscrpt() << endl;
+}
+/// when throwing:
+// all (in the current scope) fully constructed objects are deallocated
+
+
+########### //
+cerr
+when you cout it goes to a holding pen / jail / buffer
+sherriff (cpu) i will flush the buffer when I want to
+eventually flushes to the I/O, may not, edl forces flush
+
+cerr skips the buffer
