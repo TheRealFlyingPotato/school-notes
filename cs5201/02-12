@@ -1,0 +1,13 @@
+##### Function Pointers #####
+see document
+##### Functions #####
+functions are good for:
+  repeated code
+  "clean up" code
+
+never return a reference to a local variable
+  c 4 
+  0 0 1
+  0 1 1
+  1 0 0
+  1 1 1
