@@ -1,0 +1,14 @@
+###################### Lambdas #############
+(lambda x.x^2 + 1) 6?
+37
+
+free and bound vars
+
+// must use the auto keyword
+auto my_first_lambda = [] (const int x) {return x*x;};
+
+#######
+usde the std algoithms library
+
+
+// document return type
