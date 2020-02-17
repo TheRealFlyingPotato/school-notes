@@ -1,0 +1,118 @@
+there are many new things that c++11 and on that make coding a bit easier.
+Two of those are auto and decl types
+
+##### AUTO #####
+auto allows the programmer to declare variables without explicitly stating the type
+it's a signal to the compiler to infer the type
+
+From the context, the compiler can use the correct type.
+ex:
+  float x = 1.1;
+  auto y = 1.1; or auto y = x;
+the compiler infers the necessary type. but - this code is >not< how you want to use auto.
+(without an initial value, using auto is useless)
+where auto is most handy and most often used is in iterators and templates.
+
+ex vector <itn> v;
+auto itr = v.iterator(); // replaces vector<int>>::iterator itr;
+
+####################################################################################################
+>> ex <<
+template <class BuiltType, class Builder>
+void buildSomething(Builder Builder & builder)
+{
+  BuiltType obj = builder.makeObj();
+  __ does something w/ the obj ___
+}
+
+// So here you have two template params, and the type of the built obj can't be deduced by the param.
+
+MyObjBuilder builder;
+builDomething<anObj>(builder);
+// can be simplified using auto, ex below //
+
+template <class builder>
+void makeSomething(Builder & builder)
+{
+  auto obj = builder.makeObj();
+  // ... does something w obj
+} // only need 1 template, greatly simplifying the code
+  // and its type is infered by the compiler and the call
+MyObjBuilder builder;
+makeSomething(builder)
+
+/////
+/////
+///// Decltype /////
+///// suppose in the example above, you want to return the value your builders created
+///// do you need the type now?
+///// is auto useless or can it do the job?
+///// c++ has a new return-type syntax in c++11+ 
+///// you can use auto as a return-type, but you NEED to use the new end of function declarator syntax:
+// ex:
+
+int add(int x, int y); // fine
+auto add(int x, int y) -> int; // fine?
+
+// this example is too simple. try this:
+class student
+{
+  private:
+    age m_age;
+    
+  public:
+    enum age{OLD, YOUNG};
+    age getAge() const;
+}
+// our accessor function is
+student::age student::getAge() 
+{
+  return m_age;
+}
+// or with auto...
+auto student::getAge() -> age
+{
+  return m_age;
+}
+// because of the end return-type syntax, the compiler makes it work since it can deduce the type.  
+####################################################################################################
+// while auto allows you to declare an object of a particulatr type,
+// decltype allows you to extract the type
+ex: 
+int x = 3;
+decltype(x) y = x; // determined by compiler, existing type of the existing variable
+// you can use decltype for almost any kind of expression
+// back to our problem
+template<class Builder>
+auto makeSomething (Builder & builder) -> decltype (builder.makeObj())
+{
+  auto val = builder.makeObj();
+  return val;
+}
+
+
+##################### Function call resolution #########################
+// Function overloading is the creation of multiple functions 
+// with the same name but with different numbers and/or types of params.
+// You overload a fnct when you want similar (in principle) behavior/concept
+// but for different types. the functionality changes.
+// whereas you use a template function when you want the same functionality for different types (same #) of params
+1. overloaded functions.
+  i. exact match (with only possibility of trivial conversions)
+  ii. trivial conversions
+    from T to T& and vice versa
+    from array of T to T* or vice versa
+  // this implies that void bob(T); and void bob(T&); cannot coexist in a program.
+  However, void bob(T) and void bob(const T) can.
+  iii. Match w/ promotions
+    from enum, bool, short to long
+    from float to double
+    ex: v bob(int a);
+        v bob(double a);
+        // can coexist
+    iii. standard conversions
+      integer types to float-types
+    iv. user-defined conversions
+      // be careful that it can only happen in one way
+      for multiple arguments the rule is best match wins
+      - NO AMBIGUITIES
