@@ -1,0 +1,79 @@
+##### The usual matching process #####
+// function call / resolution process
+// words of wisdom: 
+//   if you have to look up the rules for function call resolution,
+//   then change your code
+// what about templates?
+
+// suppose we have the template:
+template <class T>
+void bob (T a, const T & b;
+// then...
+
+void bob (int a, const int & b); // all part of the family
+void bob (char a, const char & b); 
+
+void bob (int a, const float & b); // not part of the family
+
+#### resolution steps in the presence of templates:
+  1. compiler first looks for *exact* match (without trivial promotions)
+  2. template match with possible trivial promotions
+  3. usual function declaration match (from last class period)
+  
+## ex
+template <class T>
+void bob (T a, const T & b);
+
+let 
+int A;
+float B;
+bob(1,A);   // match, step 2, T being int
+bob(1.0,B); // match, step 2, T being float
+bob(1,B); // no match
+// now add
+void bob(float,const float &);
+(bob 1,B); // yes, step 3, match with 1 promoted to float (called a standard conversion)
+
+// sometimes a template won't cover the case you need, example
+template <class T>
+int compare(const T & t1, const T & t2)
+{
+  if (t1 < t2) return -1;
+  if (t2 < t1) return 1;
+}
+
+// template specialization
+template<>   
+int compare<const char*>(const char* const & S, const char* const & t)
+{
+  return strcmp(S, t);
+}
+
+##### chapter 6: member functs ( of classes ) 
+// for member functions, a function can be and SHOULD be designated as "a const function" if 
+// it should not be allowed to modify the *calling* object
+// ex
+float & operator [] (const int i); //non const accessor
+const float & operator [] (const int i) const;
+
+################### constructors
+* named the class name
+* has no return type, hence no return statement
+* can be overloaded
+* called (usually) automatically
+// ex
+class fraction
+{
+    int m_num, m_den;
+  public:
+    fraction(int, int);
+};
+//
+fraction f(1,2);
+// can be called explicitly
+  return fraction(a,b);
+
+c++ automatically creates for your user-defined type (class_ "the" default constructor. But, this is surpressed
+if you write any other constructor
+
+// fraction g = Fraction(1,2); // ?
