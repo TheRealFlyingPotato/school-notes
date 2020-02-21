@@ -1,0 +1,64 @@
+#### constructors ####
+an object has a constructor to initialize members of the class.
+A member needs to be initialized if:
+  1. there is no constructor for that type
+  2. the member is a reference
+  3. the member is a constant
+A member doen'st need initialization if 
+  1. that member type has a constructor
+  2. that member is a __ primitie
+  3. that member has a default constructor
+copy constructors:
+  1. usually called when creating a new obj of that same type (copy an existing object
+  2. also called when pass-by-value param is used
+  3. also called when return "by value"
+  4. and when an exception is thrown - 
+  5. //signiature://  A::A(const A & a);
+  6. c++ will automatically provide a copy constructor for your class.
+       BUT it's a shallow copy. - it copies member-wise (without asking questions)
+
+#### operators ####
+an operator is a function by another name. Theier use is different.
+  * c = a + b;
+      = operator +(a,b);
+1. three flavors: unary, binary, ternary (can't overload ternary anyway)
+     operands and arguments fill paramaters // paramaters (2 with friend, 1 not friend for binary) always 2 operands
+2. can't invent new operators
+3. can't change the arity. (can't change it's flavor)
+    some operators are both unary and binary: -,+,*,&,probably more     ()?
+4. if the overload is "global" (meaning non-member) then at least one paramater must be a user-defined type.
+        e.g. you cannot redefine built in types
+5. you cannot overload
+      ?:   .    .*     ::     sizeof
+6. rule of thumb
+  1. make your defintions make sense
+  2. make your overloads jive with how these operators work for the built in primitive types
+  3. define pairs one in terms of another
+How to overload them?
+  member          
+    unary - 1 arg, 0 param
+    binary - 2 arg, 1 param
+    
+  =, [], (), -> must be overloaded as member
+ non-member
+  unary - 1 arg, 1 param
+  binary - 2 arg, 2 param
+
+++ has a false paramater with either pre/post
+
+in c++, unary ops are placed before the obj.
+example: overload the op+ for a complex number type
+complex operator+ (const complex & lhs, const complex & rhs)
+{
+  complex result(lhs);
+  return result += rhs;
+}
+complex & complex::operator+= (const complex % rhs)
+{
+  m_real += rhs.m_real;
+  m_imaginary += rhs.m_imaginary;
+  return *this;
+}
+// main
+complex x,y,z;
+x += y += z;
