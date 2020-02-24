@@ -1,0 +1,65 @@
+POSIX
+
+////////////////////////////////////// basic.cpp
+#include <iostream>
+#include <thread>
+using namespace std;
+
+void func1()
+{
+  cout << "I'm a thread!" << endl;
+}
+
+int main()
+{
+  thread t(func1);
+  cout << "Thread away!" << endl;
+  t.join(); // must either join or detatch
+  return 0;
+}
+
+//////////////////////////////////////
+// g++ basic.cpp -lpthread
+// g++ -pthread basic.cpp
+
+///////////////////////// main.cpp
+#include <cstdint>
+#include <vector>
+#include <thread>
+#include <iostream>
+
+using namespace std;
+
+void say_hello(uint64_t id)
+{
+  cout <<"Hello from thread << id << endl;
+}
+
+int main (int argc, char* argv[]) 
+{
+  uint64_t num_threads = 4;
+  if (argc == 2)
+  {
+    num_threads = atoi(argv[1]);
+  }
+  
+  vector<thread> the_threads;
+  
+  for (uint64_t i = 0; i < num_threads; i++)
+  {
+    //the_threads.push_back(thread(say_hello, i));
+    the_threads.emplace_back(say_hello, i); // actually faster, calls less constructors
+  }
+  
+  for (auto & a_thread: the_threads) {
+    a_thread.join();
+  }
+  
+  //for (int i = 0; i < the:threads.size(); i++) {
+  //  the_threads[i].join()
+  //}
+}
+///////////////
+// g++ -O3 -pthread main.cpp
+// a.out
+// a.out 8
