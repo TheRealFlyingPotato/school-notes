@@ -1,0 +1,119 @@
+############## complex class
+/// Complex.h
+class Complex
+{
+  private:
+    float m_real, float_imag;
+  public:
+    Complex (float r = 0, float i = 0) : m_real(r), m_imag(i) {}
+    Complex & operator += (...)
+    .
+    .
+    friend // usually
+    bool == (const complex & lhs, const complex & rhs)
+    { ... }
+    friend // usually
+    bool != (const complex & lhs, const complex & rhs)
+    { return !(lhs == rhs); } 
+    
+    .
+    .
+};
+
+Complex operator + (const complex & lhs, const complex & rhs); // non member
+
+// driver.cpp
+// want to be able to...
+Complex c1, c2, c3a, c3b, c3c;
+c3a = c1 + c2;
+c3b = c1 + 4; // will use the complex constructor since i is defaulted to 0
+c3c = 4 + c1; // works as well in this case
+// whatif complex operator +(__); as a member function // then c3c won't work because 4 isn't a complex calling object
+
+....
+
+### Special Operators
+Special operators: they *must* be overloaded as member functions
+  1. Assignment =
+     * should return a reference to the calling object
+          this allows chaining, e.g. { A a,b,c; a=b=c; }
+     * paramater is a *const* reference to an object of the same type.
+     * Make sure a = a; works and is efficient.
+     * Beware of contained pointers.
+     * the = operator is one of the "BIG" THREE. (no longer three.) must redefine if has pointers.
+        big 4 and a half:
+        // deconstructor, copy, copy assignement : move : swap
+  2. [] (bracket or projection operator)
+    * usually used for indexing into matrix/multi-dimensional-array-like things.
+    * it will only take 1 argument for 1 parameter
+    * you should have a fully const version and a non-const version
+  3. function evaluation operator ()
+    * this can have multiple params.
+    * used for evaluating the value of a function wrapped in a class
+          sometimes called functors
+
+class BellCurve // this is a functor or function class
+{
+  private:
+    float m_h;
+    float m_w;
+  public:
+    BellCurve(const float h, float w) : m_h(h), m_w(w) {}
+    float operator()(float x) {return m_h / (1 + m_w * x * x);}
+}
+
+BellCurve myBelle(1,2);
+std::cout << myBelle(2);
+
+
+############### Static Functions #################
+  * declared by writing "static" in front of the decleration
+  * this function can be used by "the class" and not by a particular object.
+  * static functions have no access to the (a) calling object
+
+class Complex
+{
+  private:
+    m_r, m_i;
+  public:
+    static complex fileread(iostream & in = cin);
+};
+
+Complex Complex::fileread(iostream & in = cin)
+{
+  float r, i;
+  in >> r; // >> i
+  in >> i;
+  return Complex(r, i);
+}
+/// driver.cpp
+Complex z = Complex::fileread(...);
+///
+
+
+// .h
+class Stooge
+{
+  public:
+    static void david();
+    static void john();
+    static void lucas();
+};
+
+/// driver.cpp
+Stooge::john();
+
+####### friend functions
+* a friend function for a class is a non-member function that is given access to a private section of that class
+
+class Bob
+{
+  public:
+    friend void jack();
+};
+
+* avoid friends because they make backdoors
+
+############# streaming functions
+* << insertion
+* >> extraction
