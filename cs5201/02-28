@@ -1,0 +1,71 @@
+#### Control Theory ####
+cruise control -> reaches desired speed
+
+control(set to x mph) > [CONTROLLER] > inputs (gallons per hour for ex) > car > mph
+
+
+mph  * fuel
+***********
+60        8
+70       12
+
+problem: going up/down a hill
+called open loop control: takes the output and doesn't do anything with it
+
+closed loop : output goes back into the controller
+
+q = F - D + u << u is the control, what we have control over
+
+u(t) = e(t) < if our error(t) is higher we increase fuel_flow(t)
+
+"steady state error" (e.g. never reaches, like friction/resistance in a car)
+
+now, u(t) = e(t) + integral(e) with respect to time
+
+overshoot -> hitting the car in front of us
+
+now, u(t) = e(t) + integral(e)dt + de/dt
+            present     past        future
+            PID control
+            
+constants in front of the controls (kp, ki, kd) - allows to take a weighted sum
+e.g. reaching 0 quickly: weight kp heavy
+e.g. concerned about steady-state error: weight ki heavy
+e.g. concerned about overshoot: weight kd heavy
+
+
+###################################
+################################### debuggers
+
+before optimizations matters, correctness matters
+
+g++ -g color.cpp
+
+### debuggers
+$ gdb a.out
+$$ breakpoint color.cpp:110 ////// breakpoint on the the row
+$$ run
+$$ list
+$$ print i //// looks at var
+$$ print j 
+$$ c        //// continues
+$$ delete 1 //// deletes x breakpoint
+            //// layout next /// cycles through views /// thanks dr. taylor
+
+##################################
+################################## profilers
+// valgrind memcheck - use it, not a profile
+
+$ valgrind --tool=callgrind ./a.out
+$ ls /// it made output
+use a tool (KCachgrind)
+incl. (stuff that functions calls)  v   self (time spent in the function)   // # in %
+
+turn off IO when using profilers
+
+use -O3 because it's smarter than you // e.g. g++ -g -O3 color.cpp
+
+run with big stuff - quarter of a million times
+
+### e.g. push_back takes a lot of time - size them first if possible, in this case can
+### use emplace_back
