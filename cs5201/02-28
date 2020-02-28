@@ -28,6 +28,8 @@ now, u(t) = e(t) + integral(e)dt + de/dt
             present     past        future
             PID control
             
+          
+            
 constants in front of the controls (kp, ki, kd) - allows to take a weighted sum
 e.g. reaching 0 quickly: weight kp heavy
 e.g. concerned about steady-state error: weight ki heavy
@@ -69,3 +71,37 @@ run with big stuff - quarter of a million times
 
 ### e.g. push_back takes a lot of time - size them first if possible, in this case can
 ### use emplace_back
+
+ex
+//
+Color red, blue, green;
+Color brown = red + green + blue; // bad, lots of calls
+Color brown = red;
+brown += green += blue;
+
+ex
+//
+Color op+ (color lhs, color rhs)
+{
+  color result;  //
+  ...            // takes advantage of innate c++ optimization, stack example "named return value optimization"
+  return result; // 
+}
+
+///// never use linked list it'll kill your runtime
+consecutive indices of arrays probably get cached
+
+/// std::array vs array if possible
+// single dimension array over 2d arrays
+
+//byte alignement
+problem: 0 pads a byte up to 32 bits -> use ints
+
+// hecking what
+struct Penguin 
+{
+  char direction;
+  float BMI;
+  char dummy[3];
+}
+// [c, f, f, f, f]
