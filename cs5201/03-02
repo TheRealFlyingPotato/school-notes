@@ -1,0 +1,81 @@
+############################ BREAK FOR NORMS
+a norm is a way to measure on a set of things.
+it must adhere to the following rules / properties:
+Def: 
+  V is a Vector Space
+    N is a functions that maps the vectors in vector space V to real numbers
+  1. N: V => R is a norm if N(v) >=0 for all v in V; N (v) if and only if v is the 0 vector
+  2. N(alpha v) = |alpha| N (v), v in V and alpha in R
+  3. N(v+u) <= N(v) + N(u), u,v in V
+
+-- positive integers
+p-norms: (or l-norms depending on what they're being used on)
+  ||v||p is: [the sum from i=1 to n of the absolute value of xi^p] 1/p, v in R^n and xi's are the components
+  of v
+
+Thus, "one-norm": ||v||1 = sum(i, n, |xi|^1/1)
+      "two-norm": ||v||2 = sum(i, n, |xi^2|^1/2)
+      "infinity-norm": ||v||inf = maxi {|xi|}
+
+ex: v = {1,-3,0,4} in R4
+||v||1 = |1| + |-3| + |0| + |4| = 8
+||v||2 = sqrt(1^2 + (-3)^2 + 0^2 + 4^2) = sqrt(26) == 5.08
+||v||inf = max{1,3,0,4} = 4
+
+The unit square for these spaces - 
+  * Sp = {x in R2 | ||x||p = 1}
+  check graphs (messenger) p1, p2, pinf
+
+a norm is a way to measure on a set of things
+there are infinitely many ways norms, infinitely ways to measure things
+
+"you can't measure nothing"
+
+Theorem: the equilvalence of norms
+############################################
+2 very important theorems
+Cauchy-Schwarts Inequality
+  for any vectors alpha, beta in a vector space V, &alpha, beta&^2 << function, inner product
+  must be = |alpha|^2 * |beta|^2 where
+  where |alpha| = sqrt(&alpha, alpha&)
+
+Pt: assume (without loss of generality) alpha is not the zero vector, since (alpha, zero vector) = 0 and so it holds
+  for alpha =/= the zero vector, r in R and consider r(alpha) + beta.
+  0 <= &r(alpha) + beta, r(alpha + beta)& = r^2&alpha, alpha& + 2r%alpha, beta& + &beta, beta& // foil or whatever
+  0 <= ar^2 + 2br + c -- this is quadratic in r.
+        with: a = &alpha, alpha&   b = &alpha, beta&   c = &beta, beta&'
+
+parabola: intersects r exacly 1 spot (in quadrant 1)
+thus there is at max 1 real root
+
+How is this possible?
+ax^2 + Bx + C
+B^2 - 4AC (the determinant)
+4b^2 - 4ac <= 0
+therefore: b^2 <= ac
+&alpha, beta& <= |alpha|^2 * |beta|^2
+
+Defn: 
+Let V be an inner product space (menas it's a vector space with an inner product defined on it), then alpha and beta
+in V are said to be orthogonal if and only if %alpha, beta% = 0
+
+Orthogonal and/or orthonormal vector sets, in particular, orthogonal bases, are really very important.
+
+ortho : all orthogonal to eachother
+normal: all of unit length
+prime example: i, j, k
+              i = <1,0,0>
+               ...
+
+The Grahm-Schmidt Process will change >any< to an orthonormal basis
+  if you have a basis S = {alpha 1, .... , alpha n} for a vector space V,
+  that is orthonormal, then life is very simple.
+  For the v in V, there exists ai's such that v = a1alpha1, + .. + alphan
+  &v, alpha1& = (a1alpha1, + ... + an ........... ?
+  `           = a1
+  v = sum(i=1, n, &v, alphai& alphai
+  
+  v = a1v1 + a2v2 + .. + anvn
+  Q? what are the ai's?
+
+Theorem 2: The Triangle inequality
