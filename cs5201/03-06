@@ -1,0 +1,84 @@
+Our most important result.
+Thru (The Equivalence of Norms)
+Let N and M be norms on Rn.  There exists constants c1 and c2 > 0 such that 
+  c1 M(v) <= N(v) <= c2M(v)   v is a vector in Rn
+  
+  Lemma: Continuity of Norms:
+    Let N(v) be a norm on Rn. Then N(v) is a continuos function of the components, xi's, of v in Rn.
+    
+    Proof:
+    let v = <x1, ..., xn> u = <y1, ..., yn>
+    ned to show that if xi's are close to yi's, then N(v) is approx N(u)
+    
+    We have: (v - u) = sum(i=1, n, (xi - yi)ei
+     
+    So, N(v - u) = sum(i=1, n, |xi - yi|N(ei) = sum(i, n, max{|xi - yi|}N(ei)
+                 = Sum(i,n,||v - u||inf
+    Now, using the reverse triangle Ineq.
+      |N(v) - N(u)| <= N(v-c) <= ||v-u||info * c ,  constant c = sum(i,n,N(ei))
+      |N(v) - N(u)| <= c||v - u||inf
+    
+ Proof of Eq of Norms:   [cM(v) <= N(v) <= c2 M(v)
+  it's sufficient to show for an arbitrary norm N and ||.|| inf
+  and then apply the inequality twice.
+  So, we need to show there are two constants c1, c2, >= 0 such that
+      c1 ||v||inf <= N(v) <= c2 ||v||inf
+      c3 ||.||inf <= M(.) <= c4 ||.||inf
+      
+   From the lemma, let u = 0vector
+   we have |N(v) - N(u)| <= e||v - u|| inf
+   therefore |N(v)| = N(v) <= c||v||inf. This shows the upper inequality
+   
+ Furthermore, all norms are bounded away from 0. So the lower ineqaulity holds.
+ 
+ How is this telling us that norms are equivalent? (not equal)
+  They are equivalent (22 inches vs .5 meters, desk example)
+    Space as they shrink, going to 0
+    Space as they grow, going to infinity
+  They are equilvalent
+ 
+ So what? What does this theorem tell us?
+ The upshot of it is:
+  Choose the norm that is easiest!!!!!!!!
+ 
+ 
+     
+  
+     
+   ei = [0
+         0
+         .
+         .
+         .
+         i
+         .
+         .
+         .
+         0]
+
+|vk = v| -> 0
+
+################ Matrix Norms
+In addition to the three properties for vector norms, we require:
+  4. ||AB|| <= ||A|| * ||B||
+  5. ||Ax||~x (in the space of x) <= ||A|| ||x||~x
+
+Multiplying Matrices x Vectors
+
+The Frobenius Norm
+  Let A (nxn) be real and consider the norm ||.||~2 for vecotrs.
+  Then ||Ax||~2 = [sum(i, n, |sun(j, n, aijxj)|^2]^1/2
+  <= [sum(i,n,(sum(|aij|^2))^1/2...xj...
+  = F(A) ||x||~2, F(A) = sum(ij=1,n,|aij|^2]^1/2
+     ^^^ Frob Norm
+     
+ 
+ A = [1 2 3 4
+      -3 0 8 -9
+      4 0 1 2
+      -1 -1 2 0]
+
+F(A) = sqrt(1+4+9+16
+            +9+0+64+81
+            +16+0+1+4
+            +1+1+4+0) = sqrt(131) =~ 11.45
