@@ -1,0 +1,103 @@
+Given a vector norm on V, the associated matrix norm, called the operator norm, is given by 
+||A|| = supremum, x =/= 0 vector,  ->  (||Ax||~V)/(||x||~V||), x in V
+
+let's look at the operator norm (||A||~1) induced by ||.||~1. It is called the "column sum norm".
+  ||A||~1 = max(i <= j <=n, sum(i=1, n, |aij|}
+  for a each column, add up the entries in the rows
+  it is the column sum's norm
+  and then find the greatest one
+
+we must show that ||A||~1 is bounded above and it exists.
+So, we show hat supremum x =/= 0 (||Ax||~1)/(||x||~1) <= c and 
+c = max over j sum(i, |aij|)
+Thus, for x =/= 0 vector and urb
+  ||Ax||~1 = sum(i=1, n, |sum(j=1, n, aij * xj)|) <= sum(i=1, n, sum(j=1,n,|aij| |xj|)), by the triangle inequality
+  
+  now, interchanging the order of the sums: 
+    ||Ax||, <= sum(i=1,nm|xj|) sum(j=1,n,|aji|) <= max over j sum
+  ... see pic
+ 
+ Since x was chosen arbitrarily, ||Ax||~1  <= c
+      sup                        || x||~1
+      x =/= 0vec
+ 
+ Moreover, there has to exist a value K such that
+  max           sum(j=1,n,|aij|) = sum(j=1,n,|aik|)
+ i <= j <= n
+ 
+ if I'm looking for the maxiumum over j of the sum over aij so there has to exists a k for which pt2 is that max
+ 
+ So, let x = ek (unit vector for that value of k)
+ then ||Ax||~1 / ||x||~1  will == sum(i=1,n,|aik|) = c
+ 
+ so, ||A||~1 is indeed a norm
+ 
+ Also, the operator norm induced by ||.||~inf
+ is called "the row-sum norm".
+it is equal to ||A||~inf = max { sum(j=1, n, |aij|)} // sum down a given row and take the max
+                         i<=i<=n
+                         
+
+Example:
+A = [
+      4 -1 0 2
+      3 5 -2 1
+      0 7 0 -1
+      4 0 3 0
+    ]
+
+||A||~F = sqrt(16+ 1 + 4 + 9 + 25 + 4 + 1 + 49 + 1+ 16 + 9) = sqrt(135) ~= 11.61
+// how can this go to zero? all values must go towards zero
+sum of colums(absolute val)
+||A||~1 = 4+3+0+4 = 11
+          11+13+5+4 = 13
+          0+2+0+3 = 5
+          2+1+1+0 = 4
+      => max{11,13,5,4} = 13
+//how can this go towards zero? all values must go towards zero
+ 
+                sum of rows
+||A||~inf = max{7,11,8,7} = 11
+//how can this go towards zero? all values must go towards zero
+
+convincing argument: if any one of these norms tend to zero they all have to tend towards 0
+
+// this is: the end of material that is fair game for the test
+// book to delve futher: Atkinson: ask him if we care
+
+for example: when I gave the equivalent of norms
+e1M(x) <= N(x) <= c2M(x)
+
+c1||x||~inf <= N(x) <= c2||x||~inf
+can also write for M
+c3||x||~inf <= M(x) <= c4||x||~inf
+
+if I were to...
+c3*c2/c3||x||~inf <= M(x) <= c4||x||~inf
+
+
+one arbitrary norm N, vs ~inf norm and apply it twice
+c3M(x) <= N(x) <= c4M(x)
+
+
+also, kinda like a warning or a suggestion that you really ought to do it
+won't expect proving something is a norm
+
+futhermore, I qould say no more than roughly 20% would be mathmatics
+great majority will be c++
+
+josh's stuff: lambdas, constexpr (maybe)
+
+* why modeling
+* uml
+* makefiles
+* review of basic cpp
+* bits of new cpp
+* josh
+* no profile use or gdb
+* big three: when you write a class that aggregates a pointer, you need to write:
+      copy, destructor, assignment op
+      * big 3.5, 4, 4.5, 5
+      move constructor: will cover after break
+      swap function : can't say why until after move constructor
+      
