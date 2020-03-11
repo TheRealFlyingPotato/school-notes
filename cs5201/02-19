@@ -24,7 +24,6 @@ void bob (int a, const float & b); // not part of the family
 template <class T>
 void bob (T a, const T & b);
 
-let 
 int A;
 float B;
 bob(1,A);   // match, step 2, T being int

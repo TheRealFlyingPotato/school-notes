@@ -19,7 +19,7 @@ auto itr = v.iterator(); // replaces vector<int>>::iterator itr;
 ####################################################################################################
 >> ex <<
 template <class BuiltType, class Builder>
-void buildSomething(Builder Builder & builder)
+void buildSomething(Builder & builder)
 {
   BuiltType obj = builder.makeObj();
   __ does something w/ the obj ___

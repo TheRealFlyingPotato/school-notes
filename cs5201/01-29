@@ -6,7 +6,7 @@ Things         Relationships          Diagrams
 
 **things responsible for**
 Things:
-  1. Strucutral: Nouns of UML, static parts of the model, either phystical (e.g. desk, building) or conceptual (e.g. matrix)
+  1. Structural: Nouns of UML, static parts of the model, either phystical (e.g. desk, building) or conceptual (e.g. matrix)
      >> **class** - set of objects with shared operations and attributes
      >> interface -
      >> collaboration -
